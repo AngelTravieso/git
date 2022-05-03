@@ -1,0 +1,102 @@
+Configurar datos usuario git
+git config --global user.name "AngelTravieso"
+git config --global user.email "angeltraviesoc@gmail.com"
+
+Chequear datos de usuario guardados
+git config --global -e
+
+Crear repositorio local
+git init
+
+Agregar archivos al repositorio
+git add [nombre_archivo]
+git add . (para agregar todo)
+
+Ver estatus de los archivos del repositorio
+git status
+
+Crear commit y guardar registros
+git commit -m [mensaje_commit]
+
+Para volver al ultimo commit hecho
+git checkout -- .
+
+Dejar archivo en su ultimo commit
+git checkout -- [nombre_archivo]
+git checkout -- README.md
+
+Ver registros de commits
+git log
+
+Ver registros de commits resumido
+git log --oneline
+
+Ver registros de commits de manera elegante, con sus graficos, etc
+git log --oneline --decorate --all --graph
+
+Ver los archivos modificados y que estan en el stage
+git status -s
+	
+Ver los archivos modificados y la rama en la que se está trabajando
+git status -s -b
+
+Agregar todos los archivos con la extension indicada
+git add *.png
+
+Agregar archivos que se encuentren dentro de una carpeta
+git add css/
+
+Agregar todos los archivos que fueron modificados
+
+Excluir archivo del stage
+git reset [nombre_archivo]
+git reset *.xml
+git reset HEAD README.md
+git checkout -- README.md
+
+Agregar todos los txt de todo el proyecto
+git add "*.txt"
+
+Agrega todos los txt en el directorio actual
+git add *.txt
+
+agrega todos los archivos modificados
+git add --all
+
+Agrega los archivos que listemos
+git add [lista de archivos]
+
+Agrega todos los PDFs dentro de la carpeta PDFs
+git add pdfs/*.pdf
+
+Agrega todos los archicos dentro de la carpeta PDFs
+git add pdfs/
+
+Crear alias
+git config --global alias.[nombre_alias] "[accion del comando]"
+git config --global alias.lg "log --oneline --decorate --all --graph"
+git config --global alias.s "status -s -b"
+
+Ver configuracion general
+git config --global -e (abre vim)
+git config --global -l
+
+Ver diferencias entre commits
+git diff
+
+Ver diferencias (que verifique tambien los archivos en staged)
+git diff --staged
+
+Agregar al stage y hacer commit
+git commit -am "Commit"
+
+Cambiar mensaje de commit
+git commit --amend -m "Actualizamos el readme.md"
+
+Resetear el repositorio al commit anterior
+Esto es util cuando queremos agregar un archivo que se nos olvido anexar al commit anterior y que debe estar si o si en ese commit
+* --soft: Le indica a git que no debe modificar los archivos del directorio actual
+
+git reset --soft HEAD~[numero de retrocesos]
+git reset --soft HEAD~1
+

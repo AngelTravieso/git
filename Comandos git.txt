@@ -100,3 +100,50 @@ Esto es util cuando queremos agregar un archivo que se nos olvido anexar al comm
 git reset --soft HEAD~[numero de retrocesos]
 git reset --soft HEAD~1
 
+
+Quita los cambios , no los destruye, solo son quitados del stage pero aun tienen las modificaciones
+git reset --mixed [hash_commit]
+git reset --mixed 94s6s84
+
+Te lleva a ese commit en particular y elimina todo lo que seguía despues (no tiene las modificaciones)
+git reset --hard [hash_commit]
+git reset --mixed 94s6s84
+
+
+Git siempre mantiene un historial con lo que sucede en el repositorio así se hayan hecho resets
+
+Muestra el historial de los movimientos que se han hecho en el repositorio, esto es util para moverse hacia adelante en la linea del tiempo si es necesario
+git reflog
+git reset --hard [hash_commit]
+
+
+Cambiar el nombre de un archivo
+git mv [nombre_actual] [nombre_nuevo]
+git mv destruir-mundo.txt salvar-mundo.txt
+
+Eliminar archivo creado
+git rm [nombre_achivo]
+git rm salvar-mundo.txt
+
+* Después se debe hacer un commit para poder hacer seguimiento de esto en el repositorio y volver si atrás si es necesario *
+
+Para cambiar y eliminar archivos fuera de git
+1- Primero cambiamos el nombre de manera manual en nuestro editor de texto preferido
+
+* Al hacer esto git toma estos cambios como si se tratara de un archivo nuevo, por lo que debemos hacer un update para que lo tome como un renombre *
+
+2- git add -u (esto le dice a git que el archivo queda renombrado)
+
+* Pero aun queda el "archivo sin hacer seguimiento" para corregirlo se agrega al stage *
+
+3- git add -A
+4- git commit -m [mensaje]
+
+Para eliminar
+git add -u
+git add -A
+git commit -m [mensaje]
+
+
+
+

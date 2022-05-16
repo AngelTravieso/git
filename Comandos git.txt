@@ -101,48 +101,50 @@ git reset --soft HEAD~[numero de retrocesos]
 git reset --soft HEAD~1
 
 
-Quita los cambios , no los destruye, solo son quitados del stage pero aun tienen las modificaciones
-git reset --mixed [hash_commit]
-git reset --mixed 94s6s84
+Crear rama
+git branch [nombre_rama]
+git branch rama_prueba
 
-Te lleva a ese commit en particular y elimina todo lo que seguía despues (no tiene las modificaciones)
-git reset --hard [hash_commit]
-git reset --mixed 94s6s84
-
-
-Git siempre mantiene un historial con lo que sucede en el repositorio así se hayan hecho resets
-
-Muestra el historial de los movimientos que se han hecho en el repositorio, esto es util para moverse hacia adelante en la linea del tiempo si es necesario
-git reflog
-git reset --hard [hash_commit]
+Crear rama y pasarse de una vez
+git checkout -b [nombre_rama]
+git checkout -b rama_prueba
 
 
-Cambiar el nombre de un archivo
-git mv [nombre_actual] [nombre_nuevo]
-git mv destruir-mundo.txt salvar-mundo.txt
+Uniones (merge)
+Debes estar en la rama donde quieres unir los cambios
 
-Eliminar archivo creado
-git rm [nombre_achivo]
-git rm salvar-mundo.txt
+git merge [rama_proveniente]
 
-* Después se debe hacer un commit para poder hacer seguimiento de esto en el repositorio y volver si atrás si es necesario *
+Ejemplo:
+- En master:
+	git merge rama_prueba
 
-Para cambiar y eliminar archivos fuera de git
-1- Primero cambiamos el nombre de manera manual en nuestro editor de texto preferido
 
-* Al hacer esto git toma estos cambios como si se tratara de un archivo nuevo, por lo que debemos hacer un update para que lo tome como un renombre *
+Crear tag
+git tag [nombre_tag]
+git tag v1.0.0
 
-2- git add -u (esto le dice a git que el archivo queda renombrado)
+Listar tags
+git tag
 
-* Pero aun queda el "archivo sin hacer seguimiento" para corregirlo se agrega al stage *
+Eliminar tag en repositorio local
+git tag -d [nombre_tag]
 
-3- git add -A
-4- git commit -m [mensaje]
+Eliminar tag en repositorio remoto
+git push origin --delete [nombre_tag]
 
-Para eliminar
-git add -u
-git add -A
-git commit -m [mensaje]
+Mostrar información de un tag
+git show [nombre_tag]
+git show v1.0.0
+
+Crear tag con descripcion
+git tag -a [nombre_tag] -m [descripcion]
+
+Crear tag en un commit especifico
+git tag [nombre_tag] [hash_commit]
+git tag v1.0.0 54asd62
+
+
 
 
 
